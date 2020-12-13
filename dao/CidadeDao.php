@@ -47,7 +47,7 @@ class CidadeDaoSql implements ICidadeDao
     {
         $sql = $this->con->prepare("INSERT INTO cidade(nome, idEstado) VALUES (:nome, :idEstado)");
         $sql->bindValue(':nome', $cidade->getNome());
-        $sql->bindValue(':isEstado', $idEstado->getidEstado());
+        $sql->bindValue(':idEstado', $cidade->getIdEstado());
         $sql->execute();
     }
 
@@ -62,7 +62,7 @@ class CidadeDaoSql implements ICidadeDao
         $sql = $this->con->prepare("UPDATE Cidade SET nome=:nome, idEstado=:idEstado WHERE idCidade=:id");
         $sql->bindValue(':nome', $Cidade->getNome());
         $sql->bindValue(':id', $Cidade->getId());
-        $sql->bindValue(':idEstado', $idEstado->getIdEstado());
+        $sql->bindValue(':idEstado', $cidade->getIdEstado());
         $sql->execute();
     }
 
@@ -86,7 +86,7 @@ class CidadeDaoSql implements ICidadeDao
      * @param Integer
      * @return Object
      */
-    public function show(int $id): stdClass
+    public function showSingleCidade(int $id): stdClass
     {
         $sql = $this->con->prepare("SELECT * from area WHERE idCidade=:id");
 
