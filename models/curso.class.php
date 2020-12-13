@@ -49,7 +49,6 @@ class Curso{
     /**
      * Get the value of nome
      * 
-     * @param String
      * @return self
      */ 
     public function getNome()
@@ -60,6 +59,7 @@ class Curso{
     /**
      * Set the value of nome
      *
+     * @param String
      */ 
     public function setNome($nome)
     {
@@ -69,7 +69,6 @@ class Curso{
     /**
      * Get the value of Descricao
      * 
-     * @param String
      * @return self
      */ 
     public function getDescricao()
@@ -80,6 +79,7 @@ class Curso{
     /**
      * Set the value of Descricao
      *
+     * @param String
      */ 
     public function setDescricao($descricao)
     {
@@ -90,7 +90,6 @@ class Curso{
     /**
      * Get the value of Certificacao
      * 
-     * @param String
      * @return self
      */ 
     public function getCertificacao()
@@ -102,6 +101,7 @@ class Curso{
     /**
      * Set the value of Certificacao
      *
+     * @param String
      */ 
     public function setCertificacao($certificacao)
     {
@@ -112,7 +112,6 @@ class Curso{
     /**
      * Get the value of PreRequisito
      * 
-     * @param String
      * @return self
      */ 
     public function getPreRequisito()
@@ -123,6 +122,7 @@ class Curso{
     /**
      * Set the value of PreRequisito
      *
+     * @param String
      */ 
     public function setPreRequisito($preRequisito)
     {
@@ -133,7 +133,6 @@ class Curso{
     /**
      * Get the value of PublicoAlvo
      * 
-     * @param String
      * @return self
      */ 
     public function getPublicoAlvo()
@@ -144,6 +143,7 @@ class Curso{
     /**
      * Set the value of PublicoAlvo
      *
+     * @param String
      */ 
     public function setPublicoAlvo($publicoAlvo)
     {
@@ -154,7 +154,6 @@ class Curso{
     /**
      * Get the value of CargaHoraria
      * 
-     * @param String
      * @return self
      */ 
     public function getCargaHoraria()
@@ -165,6 +164,7 @@ class Curso{
     /**
      * Set the value of CargaHoraria
      *
+     * @param String
      */ 
     public function setCargaHoraria($cargaHoraria)
     {
@@ -175,7 +175,6 @@ class Curso{
     /**
      * Get the value of idCategoria
      * 
-     * @param Integer
      * @return self
      */ 
     public function getidCategoria()
@@ -186,6 +185,7 @@ class Curso{
     /**
      * Set the value of idCategoria
      *
+     * @param Integer
      */ 
     public function setidCategoria($idCategoria)
     {
@@ -196,7 +196,6 @@ class Curso{
     /**
      * Get the value of idArea
      * 
-     * @param Integer
      * @return self
      */ 
     public function getidArea()
@@ -207,6 +206,7 @@ class Curso{
     /**
      * Set the value of idArea
      *
+     * @param Integer
      */ 
     public function setidArea($idArea)
     {

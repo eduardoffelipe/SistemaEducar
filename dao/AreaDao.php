@@ -43,12 +43,10 @@ class AreaDao implements IAreaDao
      * 
      * @param Object
      */
-    public function create(Area $produto): void
+    public function create(Area $area): void
     {
-        $sql = $this->con->prepare("INSERT INTO produtos (nome, preco_base, descricao) VALUES (:nome, :preco_base, :descricao)");
-        $sql->bindValue(':nome', $produto->getNome());
-        $sql->bindValue(':preco_base', (float) $produto->getPreco_base());
-        $sql->bindValue(':descricao', $produto->getDescricao());
+        $sql = $this->con->prepare("INSERT INTO area(nome) VALUES (:nome)");
+        $sql->bindValue(':nome', $area->getNome());
         $sql->execute();
     }
 

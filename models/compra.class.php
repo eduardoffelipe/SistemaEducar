@@ -68,7 +68,7 @@ class Compra {
      * 
      * @return self
      */ 
-    public function getidFormaPagamento()
+    public function getIdFormaPagamento()
     {
         return $this->$idFormaPagamento;
     }
@@ -78,7 +78,7 @@ class Compra {
      *
      * @param Integer
      */ 
-    public function setidFormaPagamento($idFormaPagamento)
+    public function setIdFormaPagamento($idFormaPagamento)
     {
         $this->idFormaPagamento = $idFormaPagamento;
     }

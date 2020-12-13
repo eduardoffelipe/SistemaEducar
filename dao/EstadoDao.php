@@ -1,9 +1,9 @@
 <?php
 
-require_once('interfaces/ICidadeDao.php');
-require_once('../models/cidade.class.php');
+require_once('interfaces/IEstadoDao.php');
+require_once('../models/estado.class.php');
 
-class CidadeDaoSql implements ICidadeDao
+class EstadoDao implements IEstadoDao
 {
 
     // ---- CONSTRUCTOR ---- // 
@@ -21,20 +21,20 @@ class CidadeDaoSql implements ICidadeDao
     // ---- METHODS ---- // 
 
     /**
-     * List all Cidade
+     * List all Estado
      * 
-     * @return ArrayOfCidade
+     * @return ArrayOfEstado
      */
     public function listAll()
     {
-        $rs = $this->con->query("SELECT * FROM cidade");
+        $rs = $this->con->query("SELECT * FROM estado");
 
-        $cidades = array();
-        while ($cidade = $rs->fetch(PDO::FETCH_OBJ)) {
-            $cidades[] = $cidade;
+        $estados = array();
+        while ($estado = $rs->fetch(PDO::FETCH_OBJ)) {
+            $estados[] = $estado;
         }
 
-        return $cidades;
+        return $estados;
     }
 
 
@@ -43,11 +43,11 @@ class CidadeDaoSql implements ICidadeDao
      * 
      * @param Object
      */
-    public function create(Cidade $cidade): void
+    public function create(Estado $estado): void
     {
-        $sql = $this->con->prepare("INSERT INTO cidade(nome, idEstado) VALUES (:nome, :idEstado)");
-        $sql->bindValue(':nome', $cidade->getNome());
-        $sql->bindValue(':isEstado', $idEstado->getidEstado());
+        $sql = $this->con->prepare("INSERT INTO estado(nome, idEstado) VALUES (:nome, :idEstado)");
+        $sql->bindValue(':nome', $estado->getNome());
+        $sql->bindValue(':isEstado', $idEstado->getId());
         $sql->execute();
     }
 
