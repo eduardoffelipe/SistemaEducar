@@ -5,5 +5,5 @@ interface IAlunoDao
     public function update(Aluno $aluno):void; //Atualiza um Aluno
     public function delete(string $cpf):void; //Deleta um Aluno
     public function listAll(); //Lista todos os alunos
-    public function showSingleArea(string $cpf); //lista um aluno
+    public function showSingleAluno(string $cpf); //lista um aluno
 }
