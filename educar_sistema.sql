@@ -5,158 +5,168 @@
 -- Host: localhost
 -- Tempo de geração: 11-Dez-2020 às 23:25
 -- Versão do servidor: 10.4.14-MariaDB
--- versão do PHP: 7.4.10
+-- versão do PHP: 8.0.0
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
+CREATE DATABASE educar_sistema;
+USE educar_sistema;
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `grafica`
+-- Banco de dados: `educar_sistema`
 --
 
 -- --------------------------------------------------------
 
---
--- Estrutura da tabela `itempedido`
---
+  CREATE TABLE Estado
+  (
+    idEstado INT NOT NULL AUTO_INCREMENT,
+    Nome VARCHAR(45) NOT NULL,
+    CONSTRAINT pkEstado
+      PRIMARY KEY (`idEstado`)
+  );
 
-CREATE TABLE `itempedido` (
-  `id_pedido` int(11) NOT NULL,
-  `id_produto` int(15) NOT NULL,
-  `quantidade` varchar(255) NOT NULL,
-  `valor` double NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  CREATE TABLE Cidade
+  (
+    idCidade INT NOT NULL AUTO_INCREMENT,
+    Nome VARCHAR(45) NOT NULL,
+      idEstado INT,
+    CONSTRAINT pkCidade
+      PRIMARY KEY (`idCidade`),
+    CONSTRAINT fkEstado
+      FOREIGN KEY (idEstado)
+      REFERENCES Estado(idEstado)
+  );
 
--- --------------------------------------------------------
+  CREATE TABLE Endereco
+  (
+    idEndereco INT NOT NULL AUTO_INCREMENT,
+    Rua VARCHAR(45) NOT NULL,
+      CEP VARCHAR(10) NOT NULL,
+      Numero INT NOT NULL,
+      Bairro VARCHAR(45) NOT NULL,
+      Complemento VARCHAR(45) NOT NULL,
+      idCidade INT,
+    CONSTRAINT pkEndereco
+      PRIMARY KEY (`idEndereco`),
+    CONSTRAINT fkCidade
+      FOREIGN KEY (idCidade)
+      REFERENCES Cidade(idCidade)
+  );
 
---
--- Estrutura da tabela `pedido`
---
+  CREATE TABLE Pessoa
+  (
+    idPessoa INT NOT NULL AUTO_INCREMENT,
+    Nome VARCHAR(45) NOT NULL,
+      CPF VARCHAR(45) NOT NULL,
+      RG VARCHAR(45) NOT NULL,
+      OrgaoEmissor VARCHAR(45) NOT NULL,
+      DataNascimento DATE NOT NULL,
+      Telefone VARCHAR(45) NOT NULL,
+      EstadoCivil VARCHAR(20) NOT NULL,
+      Sexo CHAR(2) NOT NULL,
+      idEndereco INT,
+    CONSTRAINT pkPessoa
+      PRIMARY KEY (`idPessoa`),
+    CONSTRAINT fkEndereco
+      FOREIGN KEY (idEndereco)
+      REFERENCES Endereco(idEndereco)
+  );
 
-CREATE TABLE `pedido` (
-  `id_pedido` int(11) NOT NULL,
-  `id_cliente` varchar(11) CHARACTER SET latin1 NOT NULL,
-  `data` datetime NOT NULL,
-  `valor` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  CREATE TABLE Funcionario
+  (
+    idPessoa INT,
+    Cargo VARCHAR(45) NOT NULL,
+      Email VARCHAR(45) NOT NULL,
+      Senha VARCHAR(45) NOT NULL,
+    CONSTRAINT pkPessoa
+      PRIMARY KEY (`idPessoa`),
+    CONSTRAINT fkPessoaFuncionario
+      FOREIGN KEY (idPessoa)
+      REFERENCES Pessoa(idPessoa)
+  );
 
--- --------------------------------------------------------
+  CREATE TABLE Aluno
+  (
+    idPessoa INT ,
+    NivelAcademico VARCHAR(45) NOT NULL,
+    CONSTRAINT pkPessoa
+      PRIMARY KEY (`idPessoa`),
+    CONSTRAINT fkPessoaAluno
+      FOREIGN KEY (idPessoa)
+      REFERENCES Pessoa(idPessoa)
+  );
 
---
--- Estrutura da tabela `produtos`
---
 
-CREATE TABLE `produtos` (
-  `id_produto` int(15) NOT NULL,
-  `nome` varchar(30) DEFAULT NULL,
-  `preco_base` double DEFAULT NULL,
-  `descricao` varchar(200) DEFAULT NULL,
-  `tipo` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  CREATE TABLE Categoria
+  (
+    idCategoria INT NOT NULL AUTO_INCREMENT,
+    Nome VARCHAR(45) NOT NULL,
+    CONSTRAINT pkCategoria
+      PRIMARY KEY (`idCategoria`)
+  );
 
---
--- Extraindo dados da tabela `produtos`
---
+  CREATE TABLE Area
+  (
+    idArea INT NOT NULL AUTO_INCREMENT,
+    Nome VARCHAR(45) NOT NULL,
+    CONSTRAINT pkArea
+      PRIMARY KEY (`idArea`)
+  );
 
-INSERT INTO `produtos` (`id_produto`, `nome`, `preco_base`, `descricao`, `tipo`) VALUES
-(1, 'Caneca Estampada', 15, 'Caneca estampada para presente.', NULL),
-(2, 'Banner', 100, 'Banner para trabalhos acadêmicos, anúncios, promoções e eventos.', NULL),
-(5, 'Caneca Bob Esponja', 35, 'Caneca Infantil do Bob Esponja', NULL),
-(6, 'Impressão de Texto', 1, 'Impressão de textos em folha.', NULL),
-(7, 'Impressão de Imagens', 5, 'Impressão de imagens em fotos.', NULL),
-(8, 'Impressão 3D', 50, 'Impressão de objetos 3D à partir de 50 reais.', NULL),
-(9, 'Caneca Universitária', 15, 'Caneca para estampa do Curso.', NULL);
+  CREATE TABLE Curso
+  (
+    idCurso INT NOT NULL AUTO_INCREMENT,
+    Nome VARCHAR(45) NOT NULL,
+      Descricao VARCHAR(100) NOT NULL,
+      Certificacao VARCHAR(100) NOT NULL,
+      PreRequisito VARCHAR(300) NOT NULL,
+      PublicoAlvo VARCHAR(100) NOT NULL,
+      CargaHoraria VARCHAR(30) NOT NULL,
+      idCategoria INT,
+      idArea INT,
+    CONSTRAINT pkCurso
+      PRIMARY KEY (`idCurso`),
+    CONSTRAINT fkCategoria
+      FOREIGN KEY (idCategoria)
+      REFERENCES Categoria(idCategoria),
+    CONSTRAINT fkArea
+      FOREIGN KEY (idArea)
+      REFERENCES Area(idArea)
+  );
 
--- --------------------------------------------------------
+  CREATE TABLE FormaPagamento
+  (
+    idFormaPagamento INT NOT NULL AUTO_INCREMENT,
+    Descricao VARCHAR(100) NOT NULL,
+      NumeroParcelas INT NOT NULL,
+    CONSTRAINT pkFormaPagamento
+      PRIMARY KEY (`idFormaPagamento`)
+  );
 
---
--- Estrutura da tabela `usuarios`
---
+  CREATE TABLE Compra
+  (
+    idCurso INT,
+      idPessoa INT,
+      idFormaPagamento INT,
+    Valor DOUBLE NOT NULL,
+    CONSTRAINT pkCompra
+      PRIMARY KEY (`idCurso`, `idPessoa`),
+    CONSTRAINT fkCursoCompra
+      FOREIGN KEY (idCurso)
+      REFERENCES Curso(idCurso),
+    CONSTRAINT fkAlunoCompra
+      FOREIGN KEY (idPessoa)
+      REFERENCES Aluno(idPessoa),
+    CONSTRAINT fkFormaPagamento
+      FOREIGN KEY (idFormaPagamento)
+      REFERENCES FormaPagamento(idFormaPagamento)
+  );
 
-CREATE TABLE `usuarios` (
-  `cpf` varchar(11) NOT NULL,
-  `nome` varchar(50) DEFAULT NULL,
-  `logradouro` varchar(100) NOT NULL,
-  `cidade` varchar(30) NOT NULL,
-  `estado` varchar(2) NOT NULL,
-  `cep` varchar(9) NOT NULL,
-  `data_nascimento` date NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `senha` varchar(12) NOT NULL,
-  `tipo` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Extraindo dados da tabela `usuarios`
---
 
-INSERT INTO `usuarios` (`cpf`, `nome`, `logradouro`, `cidade`, `estado`, `cep`, `data_nascimento`, `email`, `senha`, `tipo`) VALUES
-('111111', 'GIULIANO PRADO DE MORAIS', 'Rua A', 'Alegre', 'ES', '4445522', '2008-01-01', 'giu@email', '1234', '0'),
-('8888', 'Paulo', 'rua 1', 'alegre', 'mg', '888', '1998-02-11', 'p@', '111', '0');
 
---
--- Índices para tabelas despejadas
---
 
---
--- Índices para tabela `itempedido`
---
-ALTER TABLE `itempedido`
-  ADD PRIMARY KEY (`id_produto`,`id_pedido`);
 
---
--- Índices para tabela `pedido`
---
-ALTER TABLE `pedido`
-  ADD PRIMARY KEY (`id_pedido`),
-  ADD KEY `fk_CodCliente` (`id_cliente`);
 
---
--- Índices para tabela `produtos`
---
-ALTER TABLE `produtos`
-  ADD PRIMARY KEY (`id_produto`);
 
---
--- Índices para tabela `usuarios`
---
-ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`cpf`);
 
---
--- AUTO_INCREMENT de tabelas despejadas
---
-
---
--- AUTO_INCREMENT de tabela `pedido`
---
-ALTER TABLE `pedido`
-  MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de tabela `produtos`
---
-ALTER TABLE `produtos`
-  MODIFY `id_produto` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
--- Restrições para despejos de tabelas
---
-
---
--- Limitadores para a tabela `pedido`
---
-ALTER TABLE `pedido`
-  ADD CONSTRAINT `fk_CodCliente` FOREIGN KEY (`id_cliente`) REFERENCES `usuarios` (`cpf`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

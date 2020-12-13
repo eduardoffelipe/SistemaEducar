@@ -1,6 +1,12 @@
 <!--
-Autor: Davi Borges
+Autor 1: Eduardo Toledo
+Matrícula: 2016203716
+
+------------------------
+
+Autor 2: Devair Silva
 Matrícula: 2015208127
+
 -->
 
 <?php
@@ -9,14 +15,14 @@ $produto = $_SESSION['produto'];
 ?>
 
 <!doctype html>
-<html lang="en">
+<html lang="pt_BR">
 
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Fast Graphic - Serviços de Gráfica</title>
+    <title>Educar - Sistema Educacional EAD</title>
     <link href="//fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap" rel="stylesheet">
 

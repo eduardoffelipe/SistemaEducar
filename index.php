@@ -11,9 +11,9 @@ Matrícula: 2015208127
 <?php
 
 session_start();
-$produtos = $_SESSION['produtos'];
+$cursos = $_SESSION['cursos'];
 
-if (empty($produtos) && empty($equipamentos)) {
+if (empty($cursos) && empty($alunos)) {
     header('Location: controllers/loadController.php');
 }
 

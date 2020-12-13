@@ -5,7 +5,7 @@ class Conexao
       private $servidor_mysql = 'localhost';
       private $nome_banco = 'educar_sistema';
       private $usuario = 'root';
-      private $senha = '';
+      private $senha = 'Eduardo#70';
       private $con;
 
       public function getConexao()
