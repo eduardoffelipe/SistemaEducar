@@ -1,6 +1,7 @@
 <?php 
 class Aluno extends Pessoa {
 
+    private $idPessoa;
     private $nivelAcademico;
   
   
@@ -23,6 +24,17 @@ class Aluno extends Pessoa {
     // ---- GETTERS AND SETTERS ---- // 
 
     /**
+     * Get the value of IdAluno
+     * 
+     * @return self
+     */ 
+    public function getId()
+    {
+        return $this->$idAluno;
+    }
+
+
+    /**
      * Get the value of NivelAcademico
      * 
      * @return self
@@ -35,6 +47,7 @@ class Aluno extends Pessoa {
     /**
      * Set the value of NivelAcademico
      *
+     * @param String
      */ 
     public function setNivelAcademico($nivelAcademico)
     {

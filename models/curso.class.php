@@ -1,6 +1,7 @@
 <?php 
 class Curso{
 
+    private $idCurso;
     private $nome;
     private $descricao;
     private $certificacao;
@@ -31,6 +32,18 @@ class Curso{
 
     
     // ---- GETTERS AND SETTERS ---- // 
+    
+
+     /**
+     * Get the value of idCurso
+     * 
+     * @return self
+     */ 
+    public function getId()
+    {
+        return $this->$idCurso;
+    }
+
 
 
     /**

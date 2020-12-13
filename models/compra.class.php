@@ -1,6 +1,8 @@
 <?php 
 class Compra {
 
+    private $idCurso;
+    private $idAluno;
     private $valor; 
     private $idFormaPagamento;
   
@@ -18,12 +20,31 @@ class Compra {
 
     
     // ---- GETTERS AND SETTERS ---- // 
+    
+    /**
+     * Get the value of idCurso
+     * 
+     * @return self
+     */ 
+    public function getIdCurso()
+    {
+        return $this->$idCurso;
+    }
+
+    /**
+     * Get the value of idAluno
+     * 
+     * @return self
+     */ 
+    public function getIdAluno()
+    {
+        return $this->$idCidade;
+    }
 
 
     /**
      * Get the value of Valor
      * 
-     * @param Double
      * @return self
      */ 
     public function getValor()
@@ -34,6 +55,7 @@ class Compra {
     /**
      * Set the value of Valor
      *
+     * @param Double
      */ 
     public function setValor($valor)
     {
@@ -44,7 +66,6 @@ class Compra {
     /**
      * Get the value of idFormaPagamento
      * 
-     * @param Integer
      * @return self
      */ 
     public function getidFormaPagamento()
@@ -55,6 +76,7 @@ class Compra {
     /**
      * Set the value of idFormaPagamento
      *
+     * @param Integer
      */ 
     public function setidFormaPagamento($idFormaPagamento)
     {

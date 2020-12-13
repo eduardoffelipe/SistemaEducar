@@ -1,6 +1,7 @@
 <?php 
 class Area{
 
+    private $idArea;
     private $nome;
   
 
@@ -15,10 +16,22 @@ class Area{
     }
 
     
-    // ---- GETTERS AND SETTERS ---- // 
+    // ---- GETTERS AND SETTERS ---- //
+    
+    /**
+     * Get the value of idArea
+     * 
+     * 
+     * @return self
+     */ 
+    public function getId()
+    {
+        return $this->$idArea;
+    }
 
     /**
      * Get the value of nome
+     * 
      * 
      * @return self
      */ 
@@ -30,6 +43,7 @@ class Area{
     /**
      * Set the value of nome
      *
+     * @param String
      */ 
     public function setNome($nome)
     {

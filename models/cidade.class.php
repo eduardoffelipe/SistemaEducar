@@ -1,6 +1,7 @@
 <?php 
 class Cidade {
-
+    
+    private $idcidade;
     private $nome;
     private $idEstado;
   
@@ -20,11 +21,19 @@ class Cidade {
     
     // ---- GETTERS AND SETTERS ---- // 
 
-
+    /**
+     * Get the value of idcidade
+     * 
+     * @return self
+     */ 
+    public function getId()
+    {
+        return $this->$idcidade;
+    }
+    
     /**
      * Get the value of nome
      * 
-     * @param String
      * @return self
      */ 
     public function getNome()
@@ -35,6 +44,7 @@ class Cidade {
     /**
      * Set the value of nome
      *
+     * @param String
      */ 
     public function setNome($nome)
     {
@@ -44,7 +54,6 @@ class Cidade {
     /**
      * Get the value of reference from Estado
      * 
-     * @param Integer
      * @return self
      */ 
     public function getidEstado()
@@ -55,6 +64,7 @@ class Cidade {
     /**
      * Set the value of reference from Estado
      *
+     * @param Integer
      */ 
     public function setIdEstado($idEstado)
     {

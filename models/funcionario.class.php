@@ -1,6 +1,7 @@
 <?php 
 class Funcionario extends Pessoa {
 
+    private $idPessoa;
     private $cargo;
     private $email;
     private $senha;
@@ -27,10 +28,22 @@ class Funcionario extends Pessoa {
     // ---- GETTERS AND SETTERS ---- // 
 
     /**
+     * Get the value of idPessoa
+     * 
+     * @return self
+     * 
+     */ 
+    public function getId()
+    {
+        return $this->$IdPessoa;
+    }
+
+
+    /**
      * Get the value of Cargo
      * 
-     * @param String
      * @return self
+     * 
      */ 
     public function getCargo()
     {
@@ -40,6 +53,8 @@ class Funcionario extends Pessoa {
     /**
      * Set the value of Cargo
      *
+     * @param String
+     * 
      */ 
     public function setCargo($cargo)
     {

@@ -1,6 +1,7 @@
 <?php
 abstract class Pessoa
 {
+    private $idPessoa;
     private $nome;
     private $cpf;  
     private $rg;
@@ -33,11 +34,23 @@ abstract class Pessoa
 
     // ---- GETTERS AND SETTERS ---- // 
 
+
+    /**
+     * Get the value of idPessoa
+     * 
+     * @return  self
+     * 
+     */ 
+    function getId()
+    {
+        return $this->idPessoa;
+    }
+
     /**
      * Get the value of nome
      * 
-     * @param String
      * @return  self
+     * 
      */ 
     function getNome()
     {
@@ -47,6 +60,9 @@ abstract class Pessoa
 
     /**
      * Set the value of nome
+     * 
+     * @param String
+     * 
      */ 
     function setNome($nome)
     {
@@ -57,8 +73,8 @@ abstract class Pessoa
     /**
      * Get the value of CPF
      * 
-     * @param String
      * @return  self
+     * 
      */ 
     function getCpf()
     {
@@ -67,6 +83,9 @@ abstract class Pessoa
 
     /**
      * Set the value of nome
+     * 
+     * @param String
+     * 
      */ 
     function setCpf($cpf)
     {
@@ -77,8 +96,8 @@ abstract class Pessoa
     /**
      * Get the value of RG
      * 
-     * @param String
      * @return  self
+     * 
      */ 
     function getRg()
     {
@@ -87,6 +106,9 @@ abstract class Pessoa
 
     /**
      * Set the value of RG
+     * 
+     * @param String
+     * 
      */
     function setRg($rg)
     {
@@ -96,9 +118,9 @@ abstract class Pessoa
 
     /**
      * Get the value of OrgaoEmissor
-     * 
-     * @param String 
+     *  
      * @return  self
+     * 
      */    
     function getOrgaoEmissor()
     {
@@ -107,6 +129,9 @@ abstract class Pessoa
 
     /**
      * Set the value of OrgaoEmissor
+     * 
+     * @param String
+     * 
      */     
     function setOrgaoEmissor($orgaoEmissor)
     {
@@ -116,8 +141,8 @@ abstract class Pessoa
     /**
      * Get the value of Telefone
      * 
-     * @param String
      * @return  self
+     * 
      */ 
     function getTelefone()
     {
@@ -126,6 +151,9 @@ abstract class Pessoa
 
     /**
      * Set the value of Telefone
+     * 
+     * @param String
+     * 
      */ 
     function setTelefone($telefone)
     {
@@ -135,8 +163,8 @@ abstract class Pessoa
     /**
      * Get the value of DataNascimento
      * 
-     * @param String
      * @return  self
+     * 
      */ 
     function getDataNascimento()
     {
@@ -145,6 +173,9 @@ abstract class Pessoa
 
     /**
      * Set the value of DataNascimento
+     * 
+     * @param String
+     * 
      */     
     function setDataNascimento($dataNascimento)
     {
@@ -154,8 +185,8 @@ abstract class Pessoa
     /**
      * Get the value of EstadoCivil
      * 
-     * @param String
      * @return  self
+     * 
      */      
     function getEstadoCivil()
     {
@@ -164,6 +195,9 @@ abstract class Pessoa
 
     /**
      * Set the value of EstadoCivil
+     * 
+     * @param String
+     * 
      */ 
     function setEstadoCivil($estadoCivil)
     {
@@ -173,8 +207,8 @@ abstract class Pessoa
     /**
      * Get the value of Sexo
      * 
-     * @param String
      * @return  self
+     * 
      */     
     function getsexo()
     {
@@ -183,6 +217,9 @@ abstract class Pessoa
 
     /**
      * Set the value of Sexo
+     * 
+     * @param String
+     * 
      */
     function setsexo($sexo)
     {
@@ -192,8 +229,8 @@ abstract class Pessoa
     /**
      * Get the value of refence Endereco
      * 
-     * @param Integer
      * @return  self
+     * 
      */    
     function getIdEndereco()
     {
@@ -202,6 +239,9 @@ abstract class Pessoa
 
     /**
      * Set the value of refence Endereco
+     * 
+     * @param Integer
+     * 
      */  
     function setIdEndereco($idEndereco)
     {

@@ -1,6 +1,7 @@
 <?php 
 class Estado {
 
+    private $idEstado;
     private $UF; 
   
 
@@ -17,11 +18,20 @@ class Estado {
     
     // ---- GETTERS AND SETTERS ---- // 
 
+    /**
+     * Get the value of idEstado
+     * 
+     * @return self
+     */ 
+    public function getId()
+    {
+        return $this->$idEstado;
+    }
+
 
     /**
      * Get the value of UF
      * 
-     * @param String
      * @return self
      */ 
     public function getUF()
@@ -31,6 +41,8 @@ class Estado {
 
     /**
      * Set the value of UF
+     * 
+     * @param String
      *
      */ 
     public function setUF($UF)

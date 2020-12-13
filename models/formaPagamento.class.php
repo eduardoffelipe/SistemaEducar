@@ -1,6 +1,7 @@
 <?php 
 class FormaPagamento{
 
+    private $idFormadePagamento;
     private $descricao;
     private $numeroParcela;
   
@@ -22,10 +23,22 @@ class FormaPagamento{
 
 
     /**
+     * Get the value of idFormaPagamento
+     * 
+     * @return self
+     * 
+     */ 
+    public function getIdFormaPagamento()
+    {
+        return $this->$idFormaPagamento;
+    }
+
+
+    /**
      * Get the value of Descricao
      * 
-     * @param String
      * @return self
+     * 
      */ 
     public function getDescricao()
     {
@@ -35,6 +48,7 @@ class FormaPagamento{
     /**
      * Set the value of Descricao
      *
+     * @param String
      */ 
     public function setDescricao($descricao)
     {
@@ -44,8 +58,8 @@ class FormaPagamento{
     /**
      * Get the value of reference from NumeroParcela
      * 
-     * @param Integer
      * @return self
+     * 
      */ 
     public function getidEstado()
     {
@@ -54,6 +68,8 @@ class FormaPagamento{
 
     /**
      * Set the value of reference from NumeroParcela
+     * 
+     * @param Integer
      *
      */ 
     public function setIdEstado($numeroParcela)

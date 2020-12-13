@@ -1,6 +1,8 @@
 <?php 
 class Categoria {
 
+    
+    private $idCategoria;
     private $nome;
   
 
@@ -17,11 +19,19 @@ class Categoria {
     
     // ---- GETTERS AND SETTERS ---- // 
 
+    /**
+     * Get the value of idCategoria
+     * 
+     * @return self
+     */ 
+    public function getId()
+    {
+        return $this->$idCategoria;
+    }
 
     /**
      * Get the value of nome
      *  
-     * @param String 
      * @return self
      */ 
     public function getNome()
@@ -32,6 +42,7 @@ class Categoria {
     /**
      * Set the value of nome
      *
+     * @param String 
      */ 
     public function setNome($nome)
     {

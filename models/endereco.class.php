@@ -1,6 +1,7 @@
 <?php
 class Endereco
 {
+    private $idEndereco
     private $rua;
     private $cep;  
     private $numero;
@@ -28,9 +29,18 @@ class Endereco
     // ---- GETTERS AND SETTERS ---- // 
 
     /**
+     * Get the value of idEndereco
+     * 
+     * @return  self
+     */ 
+    function getId()
+    {
+        return $this->idEndereco;
+    }
+
+    /**
      * Get the value of rua
      * 
-     * @param String
      * @return  self
      */ 
     function getRua()
@@ -41,6 +51,8 @@ class Endereco
 
     /**
      * Set the value of rua
+     * 
+     * @param String
      */ 
     function setRua($rua)
     {
@@ -50,7 +62,6 @@ class Endereco
      /**
      * Get the value of cep
      * 
-     * @param String
      * @return  self
      */ 
     function getCep()
@@ -61,6 +72,9 @@ class Endereco
 
     /**
      * Set the value of cep
+     * 
+     * @param String
+     * 
      */ 
     function setCep($cep)
     {
@@ -70,8 +84,8 @@ class Endereco
     /**
      * Get the value of numero
      * 
-     * @param Integer
      * @return  self
+     * 
      */ 
     function getNumero()
     {
@@ -81,6 +95,9 @@ class Endereco
 
     /**
      * Set the value of numero
+     * 
+     * @param Integer
+     * 
      */ 
     function setNumero($numero)
     {
@@ -90,8 +107,8 @@ class Endereco
     /**
      * Get the value of bairro
      * 
-     * @param String
      * @return  self
+     * 
      */ 
     function getBairro()
     {
@@ -101,6 +118,8 @@ class Endereco
 
     /**
      * Set the value of bairro
+     * 
+     * @param String
      */ 
     function setBairro($bairro)
     {
@@ -110,7 +129,6 @@ class Endereco
     /**
      * Get the value of complemento
      * 
-     * @param String
      * @return  self
      */ 
     function getComplemento()
@@ -121,6 +139,8 @@ class Endereco
 
     /**
      * Set the value of complemento
+     * 
+     * @param String
      */ 
     function setComplemento($complemento)
     {
@@ -131,7 +151,6 @@ class Endereco
     /**
      * Get the value of reference from Cidade
      * 
-     * @param Integer
      * @return  self
      */ 
     function getidCidade()
@@ -142,6 +161,8 @@ class Endereco
 
     /**
      * Set the value of reference from Cidade
+     * 
+     * @param Integer
      */ 
     function setidCidade($idCidade)
     {
