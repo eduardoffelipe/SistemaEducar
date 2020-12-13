@@ -29,7 +29,7 @@ class AlunoDao implements IAlunoDao
      * 
      * @param Object 
      */
-    public function create(Aluno $aluno): void
+    public static function create(Aluno $aluno): void
     {
         $sql = $this->con->prepare("INSERT INTO Pessoa(nome, cpf, rg, orgaoEmissor, telefone, dataNascimento, estadoCivil, sexo) 
                                     VALUES (:nome, :cpf, :rg, :orgaoEmissor, :telefone, :dataNascimento, :estadoCivil, :sexo);");
@@ -57,7 +57,7 @@ class AlunoDao implements IAlunoDao
      */
     public function update(Aluno $aluno): void
     {
-        $sql = $this->con->prepare("UPDATE Pessoa SET nome=:nome, cpf=:cpf, rg=:rg, orgaoEmissor=:orgaoEmissor, telefone=:telefone, dataNascimento=:dataNascimento, estadoCivil=:estadoCivil, sexo=:sexo");
+        $sql = $this->con->prepare("UPDATE Pessoa SET (nome=:nome, cpf=:cpf, rg=:rg, orgaoEmissor=:orgaoEmissor, telefone=:telefone, dataNascimento=:dataNascimento, estadoCivil=:estadoCivil, sexo=:sexo);")
         
         $sql->bindValue(':nome', $aluno->getNome());
         $sql->bindValue(':cpf', $aluno->getCpf());
@@ -67,7 +67,7 @@ class AlunoDao implements IAlunoDao
         $sql->bindValue(':data_nascimento', $aluno->getDataNascimento());
         $sql->bindValue(':estadoCivil', $aluno->getEstadoCivil());
         $sql->bindValue(':sexo', $aluno->getSexo());
-        $sql->execute();
+        
 
         $sql2 = $this->con->prepare("UPDATE Aluno SET nivelAcademico=:nivelAcademico");
 

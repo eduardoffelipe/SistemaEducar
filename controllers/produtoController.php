@@ -1,6 +1,12 @@
 <!--
-Autor: Davi Borges
-Matrícula: 2015208127
+Autor 1: Eduardo Toledo
+Matrícula: 2016203716
+
+------------------------
+
+Autor 2: Devair Silva
+Matrícula: 2016204168
+
 -->
 <?php
 require_once('../database/Conexao.php');

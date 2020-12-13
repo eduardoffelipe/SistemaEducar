@@ -5,7 +5,7 @@ Matrícula: 2016203716
 ------------------------
 
 Autor 2: Devair Silva
-Matrícula: 2015208127
+Matrícula: 2016204168
 
 -->
 <?php
@@ -13,14 +13,14 @@ Matrícula: 2015208127
 session_start();
 $cursos = $_SESSION['cursos'];
 
-if (empty($cursos) && empty($alunos)) {
+if (empty($cursos)) {
     header('Location: controllers/loadController.php');
 }
 
 ?>
 
 <!doctype html>
-<html lang="en">
+<html lang="pt">
 
 <head>
     <!-- Required meta tags -->

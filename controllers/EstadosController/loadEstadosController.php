@@ -10,24 +10,25 @@ Matrícula: 2016204168
 -->
 <?php 
 require_once('../database/Conexao.php');
-require_once('../models/curso.class.php');
-require_once('../dao/CursoDao.php');
+require_once('../models/estado.class.php');
+require_once('../dao/EstadoDao.php');
 
 
 $conexao = new Conexao();
 
-$CursoDao = new CursoDao($conexao);
+$estadoDao = new EstadoDao($conexao);
 
 
-$cursos = $produtoDao->all();
+$estados = $estadoDao->listAll();
+
 
 
 session_start();
 
-if($cursos){
-    $_SESSION['cursos'] = $cursos;
+if($estados){
+    $_SESSION['estados'] = $estados;
 }else{
-    $_SESSION['cursos'] = null;
+    $_SESSION['estados'] = null;
 }
 
 

@@ -10,24 +10,25 @@ Matrícula: 2016204168
 -->
 <?php 
 require_once('../database/Conexao.php');
-require_once('../models/curso.class.php');
-require_once('../dao/CursoDao.php');
+require_once('../models/cidade.class.php');
+require_once('../dao/CidadeDao.php');
 
 
 $conexao = new Conexao();
 
-$CursoDao = new CursoDao($conexao);
+$cidadeDao = new CidadeDao($conexao);
 
 
-$cursos = $produtoDao->all();
+$cidades = $cidadeDao->listAll();
+
 
 
 session_start();
 
-if($cursos){
-    $_SESSION['cursos'] = $cursos;
+if($cidades){
+    $_SESSION['cidades'] = $cidades;
 }else{
-    $_SESSION['cursos'] = null;
+    $_SESSION['cidades'] = null;
 }
 
 

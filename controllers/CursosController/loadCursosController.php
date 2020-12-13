@@ -16,10 +16,11 @@ require_once('../dao/CursoDao.php');
 
 $conexao = new Conexao();
 
-$CursoDao = new CursoDao($conexao);
+$cursoDao = new CursoDao($conexao);
 
 
-$cursos = $produtoDao->all();
+$cursos = $cursoDao->listAll();
+
 
 
 session_start();
