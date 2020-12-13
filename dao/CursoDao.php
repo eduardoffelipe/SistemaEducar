@@ -3,7 +3,7 @@
 require_once('interfaces/ICursoDao.php');
 require_once('../models/curso.class.php');
 
-class CursoDaoSql implements ICursoDao
+class CursoDao implements ICursoDao
 {
 
     // ---- CONSTRUCTOR ---- // 
