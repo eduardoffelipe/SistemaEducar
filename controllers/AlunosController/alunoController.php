@@ -11,86 +11,54 @@ Matrícula: 2016204168
 
 <?php
 require_once('../../database/Conexao.php');
-require_once('../../models/curso.class.php');
-require_once('../../dao/cursoDao.php');
+require_once('../../models/aluno.class.php');
+require_once('../../dao/alunoDao.php');
 
-$option = $_REQUEST['option'];
 
 $conexao = new Conexao();
 
-$cursoDao = new CursoDao($conexao);
+$alunoDao = new AlunoDao($conexao);
 
 switch ($option) {
     case 1:
-        $name = $_REQUEST['fname'];
-        $preco_base = $_REQUEST['fpreco_base'];
-        $descricao = $_REQUEST['fdescricao'];
-        $id = $_REQUEST['fid'];
-
-
-        if ($id) { //caso exista curso, atualiza
-            $curso = new Curso($name, $preco_base, $descricao);
-
-            $curso->setId($id);
-
-            $cursoDao->update($curso);
-
-            echo "
-            <script>
-            alert('curso atualizado com sucesso!');
-            window.location='produtoController.php?option=2';
-            </script>
-            ";
-        } else { // caso não exista, cadastra um novo
-            $curso = new curso($name, $preco_base, $descricao);
-
-            $cursoDao->create($curso);
-
-            echo "
-            <script>
-            alert('Curso cadastrado com sucesso!');
-            window.location='cursoController.php?option=2';
-            </script>
-            ";
-        }
+       
 
         break;
 
     case 2:
-        $cursos = $cursoDao->all();
+        $alunos = $alunoDao->listAll();
 
         session_start();
-        $_SESSION['cursos'] = $cursos;
+        $_SESSION['alunos'] = $alunos;
 
-        header('Location:../restrict/listProducts.php');
+        header('Location:../aluno.php');
         break;
 
     case 3:
-        $id_curso = $_REQUEST['id'];
+        $idAluno = $_REQUEST['id'];
 
-        $cursoDao->delete($id_curso;
+        $alunoDao->delete($idAluno;
 
         echo "
                 <script>
-                alert('Curso excluído com sucesso!');
-                window.location='cursoController.php?option=2';
+                alert('Aluno excluído com sucesso!');
+                window.location='alunoController.php?option=2';
                 </script>
                 ";
 
         break;
 
     case 4:
-        $id_curso = $_REQUEST['id'];
-        $curso = $cursoDao->show($id_curso);
+        $idAluno = $_REQUEST['id'];
+        $aluno = $alunoDao->showSingleAluno($idAluno);
         
         session_start();
 
-        $_SESSION['curso'] = $curso;
+        $_SESSION['aluno'] = $aluno;
 
-        header('Location: ../singlecurso.php');
+        header('Location: ../singleAluno.php');
        
         break;
-
 
     default:
         break;

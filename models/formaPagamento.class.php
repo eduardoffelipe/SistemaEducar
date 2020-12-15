@@ -1,7 +1,7 @@
 <?php 
 class FormaPagamento{
 
-    private $idFormadePagamento;
+    private $idFormaPagamento;
     private $descricao;
     private $numeroParcela;
   
@@ -33,6 +33,17 @@ class FormaPagamento{
         return $this->$idFormaPagamento;
     }
 
+    /**
+     * 
+     * Set Id
+     * 
+     * @param Integer
+    */
+    public function setId($id)
+    {
+        $this->idFormaPagamento = $id;
+
+    }
 
     /**
      * Get the value of Descricao

@@ -1,5 +1,5 @@
 <?php
-abstract class Pessoa
+ class Pessoa
 {
     private $idPessoa;
     private $nome;
@@ -44,6 +44,18 @@ abstract class Pessoa
     function getId()
     {
         return $this->idPessoa;
+    }
+
+    /**
+     * 
+     * Set Id
+     * 
+     * @param Integer
+    */
+    public function setId($id)
+    {
+        $this->idPessoa = $id;
+
     }
 
     /**

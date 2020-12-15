@@ -39,6 +39,18 @@ class Endereco
     }
 
     /**
+     * 
+     * Set Id
+     * 
+     * @param Integer
+    */
+    public function setId($id)
+    {
+        $this->idEndereco = $id;
+
+    }
+
+    /**
      * Get the value of rua
      * 
      * @return  self

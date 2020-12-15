@@ -36,7 +36,7 @@ if (empty($cursos)) {
 </head>
 
 <body>
-<header id="site-header" class="fixed-top">
+    <header id="site-header" class="fixed-top">
         <section class="w3l-header-4">
             <div class="container">
                 <nav class="navbar navbar-expand-lg navbar-light">
@@ -107,17 +107,3 @@ if (empty($cursos)) {
             </div>
         </section>
     </header>
-
-    <div class="login">
-      <form action="controllers/CursoController/load.php" method="post" class="signin-form">
-            <label for="w3lSender">Email*</label>
-              <input type="email" name="w3lSender" id="w3lSender" placeholder="" required="" />
-
-            <label for="w3lSender">Senha*</label>
-              <input type="password" name="w3lSubect" placeholder="" class="contact-input">
-
-            <button type="submit" class="btn btn-primary btn-style">Entrar</button>
-        </div>
-      </form>
-    </div>
-

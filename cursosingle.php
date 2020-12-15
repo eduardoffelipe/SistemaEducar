@@ -1,34 +1,53 @@
 <!--
-Autor: Davi Borges
-Matrícula: 2015208127
+Autor 1: Eduardo Toledo
+Matrícula: 2016203716
+
+------------------------
+
+Autor 2: Devair Silva
+Matrícula: 2016204168
+
 -->
 <?php
-session_start();
-$produtos = $_SESSION['produtos'];
+
+
+  session_start();
+  $curso = $_SESSION['curso'];
+  
+  if($curso){
+      $_SESSION['curso'] = $curso;
+  }else{
+      $_SESSION['curso'] = null;
+  }
+
+if (empty($curso)) {
+    header('Location: controllers/CursoController/loadSingle.php');
+}
+
 ?>
 <!doctype html>
-<html lang="en">
+<html lang="pt">
 
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Fast Graphic - Serviços de Gráfica</title>
+    <title>Educar - Sistema Educacional</title>
     <link href="//fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap" rel="stylesheet">
 
     <!-- Template CSS -->
-    <link rel="stylesheet" href="../assets/css/style-starter.css">
+    <link rel="stylesheet" href="assets/css/style-starter.css">
 </head>
 
 <body>
-    <header id="site-header" class="fixed-top">
+<header id="site-header" class="fixed-top">
         <section class="w3l-header-4">
             <div class="container">
                 <nav class="navbar navbar-expand-lg navbar-light">
-                    <h1><a class="navbar-brand" href="../">
-                            <img src="../assets/svg/logo.svg" />
+                    <h1><a class="navbar-brand" href="./">
+                            <img src="assets/images/logoEducar.png" />
                         </a></h1>
                     <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="fa icon-expand fa-bars"></span>
@@ -38,24 +57,29 @@ $produtos = $_SESSION['produtos'];
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav mx-lg-auto">
                             <li class="nav-item active">
-                                <a class="nav-link" href="../">Home </a>
+                                <a class="nav-link" href="index.php">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="../about.html">Sobre</a>
+                                <a class="nav-link" href="./login.php">Login/Cadastro</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="../controllers/produtoController.php?option=2">Produtos</a>
+                                <a class="nav-link" href="controllers/CursoController/load.php">Cursos</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Login/Cadastro</a>
+                                <a class="nav-link" href="controllers/AlunosController/load.php">Alunos</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Carrinho</a>
+                                <a class="nav-link" href="controllers/FuncionariosController/load.php">Funcionários</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <h4><i class="fa fa-shopping-cart"></i></h4>
+                                </a>
                             </li>
                         </ul>
                         <ul class="navbar-nav search-right mt-lg-0 mt-2">
                             <li class="nav-item mr-3" title="Search"> Pesquisar <a href="#search" class="btn search-search">
-                                    <span class="fa fa-search" aria-hidden="true"></span></a></li>
+                                    <span class="fa fa-search pt-1 mt-2" aria-hidden="true"></span></a></li>
                         </ul>
 
                         <!-- //toggle switch for light and dark theme -->
@@ -63,8 +87,8 @@ $produtos = $_SESSION['produtos'];
                         <div id="search" class="pop-overlay">
                             <div class="popup">
                                 <form action="#" method="GET" class="d-sm-flex">
-                                    <input type="search" placeholder="Pesquise um produto.." name="search" required="required" autofocus>
-                                    <button type="submit">Buscar</button>
+                                    <input type="search" placeholder="Search.." name="search" required="required" autofocus>
+                                    <button type="submit">Search</button>
                                     <a class="close" href="#url">&times;</a>
                                 </form>
                             </div>
@@ -86,7 +110,6 @@ $produtos = $_SESSION['produtos'];
                         </nav>
                     </div>
                 </nav>
-
             </div>
         </section>
     </header>
@@ -97,7 +120,7 @@ $produtos = $_SESSION['produtos'];
             <div class="container grid-breadcrumb">
                 <ul class="breadcrumbs-custom-path mt-md-2">
                     <li><a href="../index.php">Home</a></li>
-                    <li class="active"><span class="fa fa-angle-double-right mx-2" aria-hidden="true"></span> Listar Produtos
+                    <li class="active"><span class="fa fa-angle-double-right mx-2" aria-hidden="true"></span> Listar um Curso
                     </li>
                 </ul>
             </div>
@@ -109,71 +132,63 @@ $produtos = $_SESSION['produtos'];
             <div class="contant11-top-bg">
                 <div class="container">
                     <span class="subhny-title text-center mb-2">você é o admin</span>
-                    <h3 class="hny-title text-center mb-md-5 mb-4">Exibindo todos os produtos</h3>
+                    <h3 class="hny-title text-center mb-md-5 mb-4">Cursos de <?= $curso->Curso?></h3>
+                    <h3>Descrição</h3>
+                    <div class="mb-2"></div>
+                    <p><?= $curso->Descricao?></p>
+                    <div class="mb-2"></div>
+                    <hr/>
+                    <div class="mb-2"></div>
+
+                    <h5>Certificacao</h5>
+                    <div class="mb-2"></div>
+                    <p><?= $curso->Certificacao?></p>
+                    <div class="mb-2"></div>
+                    <hr/>
+                    <div class="mb-2"></div>
+
+                    <h5>Pre Requisito</h5>
+                    <div class="mb-2"></div>
+                    <p><?= $curso->PreRequisito?></p>
+                    <div class="mb-2"></div>
+                    <hr/>
+                    <div class="mb-2"></div>
+
+
+                    <h5>Publico Alvo</h5>
+                    <div class="mb-2"></div>
+                    <p><?= $curso->PublicoAlvo?></p>
+                    <div class="mb-2"></div>
+                    <hr/>
+                    <div class="mb-2"></div>
+
+                    <h5>Carga Horaria</h5>
+                    <div class="mb-2"></div>
+                    <p><?= $curso->CargaHoraria?></p>
+                    <div class="mb-2"></div>
+                    <hr/>
+                    <div class="mb-2"></div>
+
+
+                    <h5>Categoria</h5>
+                    <div class="mb-2"></div>
+                    <p><?= $curso->Categoria?></p>
+                    <div class="mb-2"></div>
+                    <hr/>
+                    <div class="mb-2"></div>
+
+                    <h5>Area</h5>
+                    <div class="mb-2"></div>
+                    <p><?= $curso->Area?></p>
+                    <div class="mb-2"></div>
+                    <hr/>
+                    <div class="mb-2"></div>
+
                 </div>
             </div>
             <div class="form-41-mian mt-5 pt-lg-5 pt-md-4">
                 <div class="container">
-                    <div class="form-inner-cont">
-                        <span class="subhny-title mb-4">Cadastrar ou Editar os dados de um produto</span>
-                        <form action="../controllers/produtoController.php" method="post" class="signin-form" id="editForm" name="editForm">
-                            <div class="d-grid align-form-map">
-                                <div class="form-input">
-                                    <label for="fname">Name*</label>
-                                    <input type="text" name="fname" id="fname" placeholder="" />
-                                </div>
-                                <div class="form-input">
-                                    <label for="fpreco_base">Preço Base*</label>
-                                    <input type="number" name="fpreco_base" id="fpreco_base" placeholder="" required maxlength="200" />
 
-                                    <input type="hidden" name="fid" id="fid" />
-
-                                    <input type="hidden" name="option" value="1" />
-                                </div>
-                            </div>
-                            
-                            <div class="form-input">
-                                <label for="fdescricao">Descrição*</label>
-                                <textarea placeholder="" name="fdescricao" id="fdescricao" required maxlength="200"></textarea>
-                            </div>
-                            <div class="submit text-right">
-                                <button type="submit" class="btn btn-primary btn-style">Salvar Produto</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="container mt-5">
-                    <table class="table table-dark">
-                        <thead>
-                            <tr align="center">
-                                <th scope="col">#</th>
-                                <th scope="col">Nome</th>
-                                <th scope="col">Descrição</th>
-                                <th scope="col">Preço Base</th>
-                                <th scope="col" style="width:10%">Editar</th>
-                                <th scope="col" style="width:10%">Excluir</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            foreach ($produtos as $p) {
-                                $precoFormatted = number_format($p->preco_base, 2, ",", ".");
-                                $objetoProduto = json_encode($p);
-
-                                echo "
-                                <tr align='center'>
-                                    <th scope='row'>$p->id_produto</th>
-                                    <td>$p->nome</td>
-                                    <td>$p->descricao</td>
-                                    <td>R$ $precoFormatted</td>
-                                    <td><a href='#' onclick='getEditData($objetoProduto)'><i class='fa fa-pencil text-warning'></i></a></td>
-                                    <td><a href='../controllers/produtoController.php?option=3&id=$p->id_produto'><i class='fa fa-trash'></i></a></td>
-                                </tr>
-                                ";
-                            }
-                            ?>
-                        </tbody>
-                    </table>
                 </div>
             </div>
     </section>
@@ -184,11 +199,16 @@ $produtos = $_SESSION['produtos'];
         <script src="../assets/js/jquery-3.3.1.min.js"></script> <!-- Common jquery plugin -->
 
         <script>
-            function getEditData(produto) {
-                $('#fid').val(produto.id_produto);
-                $('#fname').val(produto.nome);
-                $('#fpreco_base').val(produto.preco_base);
-                $('#fdescricao').val(produto.descricao);
+            function getEditData(curso) {
+                $('#fidCurso').val(curso.idCurso);
+                $('#fnome').val(curso.nome);
+                $('#fcursoDescriocao').val(curso.descricao);
+                $('#fcertificacao').val(curso.certificacao);
+                $('#fpreRequisito').val(curso.preRequisito);
+                $('#fpublicoAlvo').val(curso.publicoAlvo);
+                $('#fcargaHoraria').val(curso.cargaHoraria);
+                $('#fidCategoria').val(curso.idCategoria);
+                $('#fidArea').val(curso.idArea);
             }
         </script>
 

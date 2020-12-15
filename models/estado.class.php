@@ -2,7 +2,7 @@
 class Estado {
 
     private $idEstado;
-    private $UF; 
+    private $nome; 
   
 
     // ---- CONSTRUCTOR ---- // 
@@ -10,9 +10,9 @@ class Estado {
     /**
      * Class constructor.
      */
-    public function __construct($UF)
+    public function __construct($nome)
     {
-        $this->UF = $UF;
+        $this->nome = $nome;
     }
 
     
@@ -28,26 +28,37 @@ class Estado {
         return $this->$idEstado;
     }
 
-
     /**
-     * Get the value of UF
      * 
-     * @return self
-     */ 
-    public function getUF()
+     * Set Id
+     * 
+     * @param Integer
+    */
+    public function setId($id)
     {
-        return $this->$UF;
+        $this->idEstado = $id;
+
     }
 
     /**
-     * Set the value of UF
+     * Get the value of nome
+     * 
+     * @return self
+     */ 
+    public function getNome()
+    {
+        return $this->$nome;
+    }
+
+    /**
+     * Set the value of nome
      * 
      * @param String
      *
      */ 
-    public function setUF($UF)
+    public function setNome($nome)
     {
-        $this->UF = $UF;
+        $this->nome = $nome;
     }
    
 }

@@ -30,6 +30,18 @@ class Area{
     }
 
     /**
+     * 
+     * Set Id
+     * 
+     * @param Integer
+    */
+    public function setId($id)
+    {
+        $this->idArea = $id;
+    }
+
+
+    /**
      * Get the value of nome
      * 
      * 

@@ -32,6 +32,17 @@ class Cidade {
     }
     
     /**
+     * 
+     * Set Id
+     * 
+     * @param Integer
+    */
+    public function setId($id)
+    {
+        $this->idCidade = $id;
+    }
+
+    /**
      * Get the value of nome
      * 
      * @return self

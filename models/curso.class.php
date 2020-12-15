@@ -17,10 +17,13 @@ class Curso{
     /**
      * Class constructor.
      */
-    public function __construct($nome, $descricao, $certificacao, $preRequisito, $publicoAlvo, $cargaHoraria, $idCategoria, $idArea)
+    public function __construct($idCurso ,$nome, $descricao, $certificacao, $preRequisito, $publicoAlvo, $cargaHoraria, $idCategoria, $idArea)
     {
+
         $this->nome = $nome;
+        $this->idCurso = $idCurso;
         $this->descricao = $descricao;
+        $this->certificacao = $certificacao;
         $this->preRequisito = $preRequisito;
         $this->publicoAlvo = $publicoAlvo;
         $this->cargaHoraria = $cargaHoraria;
@@ -41,9 +44,20 @@ class Curso{
      */ 
     public function getId()
     {
-        return $this->$idCurso;
+        return $this->idCurso;
     }
 
+    /**
+     * 
+     * Set Id
+     * 
+     * @param Integer
+    */
+    public function setId($idCurso)
+    {
+        $this->idCurso = $idCurso;
+
+    }
 
 
     /**
@@ -53,7 +67,7 @@ class Curso{
      */ 
     public function getNome()
     {
-        return $this->$nome;
+        return $this->nome;
     }
 
     /**
@@ -73,7 +87,7 @@ class Curso{
      */ 
     public function getDescricao()
     {
-        return $this->$descricao;
+        return $this->descricao;
     }
 
     /**
@@ -94,7 +108,7 @@ class Curso{
      */ 
     public function getCertificacao()
     {
-        return $this->$certificacao;
+        return $this->certificacao;
     }
 
 
@@ -116,7 +130,7 @@ class Curso{
      */ 
     public function getPreRequisito()
     {
-        return $this->$preRequisito;
+        return $this->preRequisito;
     }
 
     /**
@@ -137,7 +151,7 @@ class Curso{
      */ 
     public function getPublicoAlvo()
     {
-        return $this->$publicoAlvo;
+        return $this->publicoAlvo;
     }
 
     /**
@@ -158,7 +172,7 @@ class Curso{
      */ 
     public function getCargaHoraria()
     {
-        return $this->$cargaHoraria;
+        return $this->cargaHoraria;
     }
 
     /**
@@ -179,7 +193,7 @@ class Curso{
      */ 
     public function getidCategoria()
     {
-        return $this->$idCategoria;
+        return $this->idCategoria;
     }
 
     /**
@@ -200,7 +214,7 @@ class Curso{
      */ 
     public function getidArea()
     {
-        return $this->$idArea;
+        return $this->idArea;
     }
 
     /**

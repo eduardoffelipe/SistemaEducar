@@ -32,6 +32,30 @@ class Compra {
     }
 
     /**
+     * 
+     * Set Id Curso
+     * 
+     * @param Integer
+    */
+    public function setIdCurso($id)
+    {
+        $this->id = $idCurso;
+
+    }
+
+    /**
+     * 
+     * Set Id Aluno
+     * 
+     * @param Integer
+    */
+    public function setId($id)
+    {
+        $this->$idAluno = $id;
+
+    }
+
+    /**
      * Get the value of idAluno
      * 
      * @return self

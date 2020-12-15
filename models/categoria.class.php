@@ -30,6 +30,18 @@ class Categoria {
     }
 
     /**
+     * 
+     * Set Id
+     * 
+     * @param Integer
+    */
+    public function setId($id)
+    {
+        $this->idCategoria = $id;
+    }
+
+
+    /**
      * Get the value of nome
      *  
      * @return self
