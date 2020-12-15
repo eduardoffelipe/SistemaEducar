@@ -149,7 +149,7 @@ class AlunoDao implements IAlunoDao
                                         INNER JOIN Cidade C ON E.idCidade = C.idCidade
                                         INNER JOIN Estado EST ON C.idEstado = EST.idEstado
                                         WHERE P.idPessoa=:idPessoa");
-                                        
+
         $sql->bindValue(':idPessoa', $idPessoa);
         $sql->execute();
 
