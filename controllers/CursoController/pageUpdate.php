@@ -23,7 +23,6 @@ $idCurso = $_REQUEST['fidEdit'];
 
 
 $curso = $cursoDao->showSingleCurso($idCurso);
-print_r($curso);
 
 
 session_start();

@@ -197,7 +197,7 @@ $cursos = $_SESSION['cursos'];
                                     <td>$c->NomeCurso</td>
                                     <td>$c->NomeCategoria</td>
                                     <td>$c->NomeArea</td>
-                                    <td><a href='./controllers/CursoController/loadSingle.php?idCurso=$c->ID'><i class='fa fa-eye'></i></a></td>
+                                    <td><a href='./controllers/CursoController/loadSingle.php?idCurso=$c->ID'><i class='fa fa-eye text-light'></i></a></td>
                                     <td><a href='./controllers/CursoController/delete.php?idCurso=$c->ID'><i class='fa fa-trash'></i></a></td>
                                 </tr>
                                 ";

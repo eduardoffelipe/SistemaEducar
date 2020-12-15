@@ -24,7 +24,6 @@ $idAluno = $_REQUEST['fidEdit'];
 
 
 $aluno = $alunoDao->showSingleAluno($idAluno);
-print_r($aluno);
 
 
 session_start();

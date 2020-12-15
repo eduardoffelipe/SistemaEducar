@@ -127,9 +127,6 @@ if (empty($funcionario)) {
         </div>
     </section>
     <!-- contact1 -->
-    <?php 
-        print_r($funcionario);
-    ?>
 
     <section class="w3l-contact-11 py-5" id="contact">
         <div class="contacts-main py-lg-5 py-md-4">
